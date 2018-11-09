@@ -1,4 +1,4 @@
-# File Management
+# File management
 
 ## Handling binary files
 
@@ -162,11 +162,11 @@ Three UrlDecorator services are introduced:
 
 In addition, a UrlRedecorator service, `ezpublish.core.io.image_fieldtype.legacy_url_redecorator`, uses both decorators above to convert URIs between what is used on the new stack, and what format legacy expects (relative urls from the ezpublish root).
 
-## Multi-file upload
+### Multi-file upload
 
 Multi-file upload is a functionality that enables you to upload multiple binary files in bulk.
 
-### Configuration
+#### Configuration
 
 You can configure the storage options for uploading files using semantic configuration.
 
@@ -256,3 +256,16 @@ If no rule is specified for a Content Type, the `default_mappings` will be used.
 You can also define the maximum permitted uploaded file size under `max_file_size`.
 
 Default setting for multi-file upload are defined in [default\_settings.yml](https://github.com/ezsystems/ezplatform-ee-multi-file-upload/blob/master/bundle/Resources/config/default_settings.yml).
+
+### Multi-file move and delete
+
+New API endpoint in a payload can accept all structured requests made to any kernel API endpoint. 
+
+```
+POST http://localhost:8080/admin/api/bulk
+Cache-Control: no-cache
+Content-Type: application/vnd.ez.api.BulkOperation+json
+Accept: application/vnd.ez.api.BulkOperationResponse+json
+```
+
+![Multi-file delete](img/multi_file_delete.png)
